@@ -13,7 +13,7 @@ function getLocalDateKey(offset = 0) {
     return `${y}-${m}-${day}`;
 }
 
-/* Local history fast read */
+/* Fast local history */
 function getLocalProgress(key) {
     try {
         const history = JSON.parse(localStorage.getItem("routine_history") || "{}");
@@ -29,20 +29,32 @@ export default function useStreak(progress) {
     useEffect(() => {
         let active = true;
 
+        async function getProgressForKey(key) {
+            let p = getLocalProgress(key);
+            if (p === null) {
+                const cloud = await loadDayFromCloud(key);
+                p = cloud?.progress ?? null;
+            }
+            return p;
+        }
+
         async function calc() {
             let s = 0;
 
-            for (let i = 0; i > -365; i--) {
+            // 🔹 Decide starting day
+            let startOffset = 0;
+
+            const todayKey = getLocalDateKey(0);
+            const todayProgress = await getProgressForKey(todayKey);
+
+            if (todayProgress === null || todayProgress < 60) {
+                startOffset = -1; // start from yesterday
+            }
+
+            // 🔹 Walk backward continuously
+            for (let i = startOffset; i > startOffset - 365; i--) {
                 const key = getLocalDateKey(i);
-
-                // 1️⃣ Local first
-                let p = getLocalProgress(key);
-
-                // 2️⃣ Cloud fallback
-                if (p === null) {
-                    const cloud = await loadDayFromCloud(key);
-                    p = cloud?.progress ?? null;
-                }
+                const p = await getProgressForKey(key);
 
                 if (!active) return;
 
@@ -55,11 +67,9 @@ export default function useStreak(progress) {
             if (active) setStreak(s);
         }
 
-        // 🔴 RUN ON MOUNT + PROGRESS CHANGE
         calc();
 
-        // 🔴 ALSO RE-RUN AFTER SHORT DELAY (ensures async progress load finished)
-        const t = setTimeout(calc, 250);
+        const t = setTimeout(calc, 300);
 
         return () => {
             active = false;
