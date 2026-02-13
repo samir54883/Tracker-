@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./UI";
 import styled from "styled-components";
+import { GoTriangleLeft, GoTriangleRight } from "react-icons/go";
 
 /* ---------- LAYOUT ---------- */
 
@@ -43,9 +44,18 @@ export default function Header({
 
             {/* Right: Navigation */}
             <NavGroup>
-                <Button onClick={() => setOffset(offset - 1)}>⬅</Button>
-                <Button onClick={() => setOffset(0)}>Today</Button>
-                <Button onClick={() => setOffset(offset + 1)}>➡</Button>
+                <Button onClick={() => setOffset(offset - 1)}>
+                    <GoTriangleLeft size={20} />
+                </Button>
+
+                <Button onClick={() => setOffset(0)}>
+                    Today
+                </Button>
+
+                <Button onClick={() => setOffset(offset + 1)}>
+                    <GoTriangleRight size={20} />
+                </Button>
+
             </NavGroup>
         </Wrapper>
     );

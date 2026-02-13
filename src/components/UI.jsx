@@ -21,7 +21,7 @@ export const Button = styled.button`
     background: ${({ theme }) => theme.card};
     color: ${({ theme }) => theme.text};
 
-    padding: 8px 14px;
+    padding: 8px 12px;   /* slightly tighter for icon buttons */
     height: 40px;
     border-radius: 10px;
     cursor: pointer;
@@ -32,11 +32,17 @@ export const Button = styled.button`
 
     transition: 0.15s ease;
 
+    /* Ensures icons render perfectly centered */
+    svg {
+        display: block;
+    }
+
     &:hover {
         opacity: 0.9;
         transform: translateY(-1px);
     }
 `;
+
 
 /* ================= GRID ================= */
 
