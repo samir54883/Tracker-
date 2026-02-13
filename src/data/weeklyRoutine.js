@@ -111,7 +111,7 @@ export const weeklyRoutine = {
         oil: { time: "12:30 PM", tasks: ["(Optional) Rosemary + carrier oil"] },
         shower: {
             time: "2:00 PM",
-            tasks: ["Mild shampoo", "Conditioner"]
+            tasks: ["(Optional) Mild shampoo", "(Optional) Conditioner"]
         },
         afternoon: {
             time: "After Shower",

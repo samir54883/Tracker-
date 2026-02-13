@@ -5,11 +5,14 @@ import styled from "styled-components";
 export const Container = styled.div`
     min-height: 100vh;
     width: 100%;
-    background: ${({ theme }) => theme.bg};
-    color: ${({ theme }) => theme.text};
 
-    padding: 20px 26px 40px;   /* bottom breathing space */
+    /* IMPORTANT — do NOT paint gradient twice */
+    background: transparent;
+
+    color: ${({ theme }) => theme.text};
+    padding: 20px 26px 40px;
 `;
+
 
 /* ================= BUTTON ================= */
 
@@ -81,11 +84,66 @@ export const TaskRow = styled.label`
     gap: 8px;
     margin: 4px 0;
     cursor: pointer;
+    position: relative;
 
-    input {
+    /* Hide native checkbox but keep logic */
+    input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        width: 14px;
+        height: 14px;
+        margin: 0;
         cursor: pointer;
     }
+
+    /* Box */
+    span.box {
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        border: 1px solid ${({ theme }) => theme.border};
+        background: #000;
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+
+    /* Fire gradient when checked */
+    input[type="checkbox"]:checked + span.box {
+        background: linear-gradient(
+                to top,
+                #FDCF58 0%,
+                #FF0000 100%
+        );
+        border: none;
+    }
+
+    /* SVG Tick */
+    /* SVG Tick */
+    input[type="checkbox"]:checked + span.box::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTSAyMSA1IEwgOSAxNyBMIDQgMTIgTCAwLjUgMTUuNSBMIDkgMjMuNSBMIDI2IDYuNSBaIi8+PC9zdmc+");
+        background-repeat: no-repeat;
+
+        /* move slightly right + down */
+        background-position: 30% 40%;
+        /* keep size */
+        background-size: 75%;
+
+        /* small rotation */
+        transform: rotate(-9deg);
+
+        pointer-events: none;
+    }
+
 `;
+
+
+
+
 
 /* ================= CHORES STYLE ================= */
 /* Slight visual difference so chores feel separate */

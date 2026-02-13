@@ -6,16 +6,22 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto;   /* removed third column */
     align-items: center;
     gap: 14px;
     margin-bottom: 20px;
 `;
 
+const Title = styled.div`
+    font-family: "Abocat", system-ui, sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+`;
+
 const NavGroup = styled.div`
     display: flex;
     align-items: center;
-    gap: 8px;        /* space between arrows & Today */
+    gap: 8px;
 `;
 
 /* ---------- HEADER ---------- */
@@ -24,31 +30,23 @@ export default function Header({
                                    date,
                                    offset,
                                    setOffset,
-                                   themeMode,
-                                   setThemeMode,
                                }) {
     return (
         <Wrapper>
+            {/* Left: Title + Date */}
             <div>
-                <b>Routine Tracker</b>
+                <Title>Tracker</Title>
                 <div style={{ fontSize: 13, opacity: 0.6 }}>
                     {date.toDateString()}
                 </div>
             </div>
 
+            {/* Right: Navigation */}
             <NavGroup>
                 <Button onClick={() => setOffset(offset - 1)}>⬅</Button>
                 <Button onClick={() => setOffset(0)}>Today</Button>
                 <Button onClick={() => setOffset(offset + 1)}>➡</Button>
             </NavGroup>
-
-            <Button
-                onClick={() =>
-                    setThemeMode(themeMode === "dark" ? "light" : "dark")
-                }
-            >
-                Theme
-            </Button>
         </Wrapper>
     );
 }

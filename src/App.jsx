@@ -25,10 +25,18 @@ const Global = createGlobalStyle`
     body {
         margin: 0;
         background: ${({ theme }) => theme.bg};
+        background-color: ${({ theme }) => theme.bgSolid || "#000"};
+
+        /* FIX: stop gradient stretching */
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+
         color: ${({ theme }) => theme.text};
         transition: background 0.25s ease, color 0.25s ease;
     }
 `;
+
 
 /* ================= DATE ENGINE ================= */
 

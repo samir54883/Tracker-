@@ -49,16 +49,33 @@ const Cell = styled.div`
     width: 14px;
     height: 14px;
     border-radius: 3px;
-    background: ${({ shade, theme }) =>
-            shade === 0
-                    ? theme.border
-                    : `rgba(74,222,128, ${0.22 + shade * 0.18})`};
+
+    background: ${({ shade }) => {
+        if (shade === 0) return "#000000"; // no progress = black
+
+        const opacity = 0.22 + shade * 0.18; // intensity by progress
+
+        return `
+            linear-gradient(
+                to top,
+                rgba(253, 207, 88, ${opacity}) 0%,   /* Golden Tainoi #FDCF58 */
+                rgba(255, 0, 0, ${opacity}) 100%     /* Fire Red #FF0000 */
+            )
+        `;
+    }};
+
     cursor: pointer;
 
+    transition: transform 0.12s ease, filter 0.12s ease;
+
     &:hover {
-        transform: scale(1.15);
+        transform: scale(1.18);
+        filter: brightness(1.1);
     }
 `;
+
+
+
 
 const Tooltip = styled.div`
     position: fixed;
