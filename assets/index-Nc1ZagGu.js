@@ -185,7 +185,7 @@ Error generating stack: `+l.message+`
 `,rv=Yt(Vm)`
     padding: 6px 5px;   /* smaller horizontal padding */
 `,jA=Yt(Vm)`
-    font-family: "Cavilenny", system-ui, sans-serif;
+    font-family: "Runtime", system-ui, sans-serif;
     font-size: 14px;
     letter-spacing: 0.3px;
 `,kA=Yt.div`
@@ -193,7 +193,7 @@ Error generating stack: `+l.message+`
     font-size: 12px;   /* SAME */
     opacity: 0.6;        /* SAME */
     letter-spacing: -0.7px;   /* tighten monospace spacing */
-    word-spacing: -4px;
+    word-spacing: -3px;
 
 `,qA=Yt.div`
     font-family: "Abocat", system-ui, sans-serif;
