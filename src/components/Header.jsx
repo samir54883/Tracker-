@@ -18,8 +18,9 @@ const ArrowButton = styled(Button)`
 `;
 
 const TodayButton = styled(Button)`
-    font-family: "Runtime", system-ui, sans-serif;
+    font-family: "Cavilenny", system-ui, sans-serif;
     font-size: 14px;
+    font-weight: 800;
     letter-spacing: 0.3px;
 `;
 

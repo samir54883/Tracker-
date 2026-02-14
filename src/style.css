@@ -53,7 +53,7 @@
 @font-face {
   font-family: "Runtime";
   src: url("/RuntimeRegular-m2Odx.otf") format("opentype");
-  font-weight: normal;
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
