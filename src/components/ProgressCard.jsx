@@ -11,7 +11,7 @@ const Card = styled.div`
 
     /* ALL TEXT → SFMono-Semi */
     font-family: "SFMono-Semi", monospace;
-    font-size: 14.4px;
+    font-size: 14px;
 
 `;
 
