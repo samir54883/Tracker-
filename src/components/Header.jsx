@@ -18,7 +18,7 @@ const ArrowButton = styled(Button)`
 `;
 
 const TodayButton = styled(Button)`
-    font-family: "Cavilenny", system-ui, sans-serif;
+    font-family: "Runtime", system-ui, sans-serif;
     font-size: 14px;
     letter-spacing: 0.3px;
 `;
@@ -28,7 +28,7 @@ const DateText = styled.div`
     font-size: 12px;   /* SAME */
     opacity: 0.6;        /* SAME */
     letter-spacing: -0.7px;   /* tighten monospace spacing */
-    word-spacing: -4px;
+    word-spacing: -3px;
 
 `;
 
