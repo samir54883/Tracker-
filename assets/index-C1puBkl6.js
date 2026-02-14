@@ -173,7 +173,7 @@ Error generating stack: `+l.message+`
     gap: 14px;
     margin-bottom: 20px;
 `,rv=ee(tm)`
-    padding: 6px 4px;   /* smaller horizontal padding */
+    padding: 6px 5px;   /* smaller horizontal padding */
 `,jA=ee.div`
     font-family: "Abocat", system-ui, sans-serif;
     font-size: 24px;
