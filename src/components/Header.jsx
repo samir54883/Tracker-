@@ -13,6 +13,11 @@ const Wrapper = styled.div`
     margin-bottom: 20px;
 `;
 
+const ArrowButton = styled(Button)`
+    padding: 6px 8px;   /* smaller horizontal padding */
+`;
+
+
 const Title = styled.div`
     font-family: "Abocat", system-ui, sans-serif;
     font-size: 24px;
@@ -44,17 +49,18 @@ export default function Header({
 
             {/* Right: Navigation */}
             <NavGroup>
-                <Button onClick={() => setOffset(offset - 1)}>
+                <ArrowButton onClick={() => setOffset(offset - 1)}>
                     <GoTriangleLeft size={20} />
-                </Button>
+                </ArrowButton>
 
                 <Button onClick={() => setOffset(0)}>
                     Today
                 </Button>
 
-                <Button onClick={() => setOffset(offset + 1)}>
+                <ArrowButton onClick={() => setOffset(offset + 1)}>
                     <GoTriangleRight size={20} />
-                </Button>
+                </ArrowButton>
+
 
                 {/* 🏋️ Dumbbell Button */}
                 <Button onClick={() => console.log("Gym clicked")}>
