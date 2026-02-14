@@ -228,7 +228,7 @@ Error generating stack: `+l.message+`
 
     /* ALL TEXT → SFMono-Semi */
     font-family: "SFMono-Semi", monospace;
-    font-size: 14.4px;
+    font-size: 14px;
 
 `,$A=Yt.div`
     height: 8px;
