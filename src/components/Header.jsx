@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `;
 
 const ArrowButton = styled(Button)`
-    padding: 6px 4px;   /* smaller horizontal padding */
+    padding: 6px 5px;   /* smaller horizontal padding */
 `;
 
 
