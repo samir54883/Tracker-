@@ -61,13 +61,25 @@ export const Block = styled.div`
     border: 1px solid ${({ theme }) => theme.border};
     border-radius: 14px;
     background: ${({ theme }) => theme.card};
+
+    /* BODY TEXT → SFMono Regular */
+    font-family: "SFMono", monospace;
+
+    /* slightly smaller text */
+    font-size: 13px;
 `;
+
 
 export const BlockHeader = styled.div`
     padding: 10px 14px;
     border-bottom: 1px solid ${({ theme }) => theme.border};
-    font-weight: 600;
+
+    /* TITLE → SFMono Semibold */
+    font-family: "SFMono-Semi", monospace;
+    font-size: 14.4px;
+
 `;
+
 
 /* ================= CATEGORY ================= */
 /* Used for Teeth / Hair / Skin / Chores */
@@ -135,9 +147,9 @@ export const TaskRow = styled.label`
         background-repeat: no-repeat;
 
         /* move slightly right + down */
-        background-position: 30% 40%;
+        background-position: 30% 20%;
         /* keep size */
-        background-size: 75%;
+        background-size: 85%;
 
         /* small rotation */
         transform: rotate(-9deg);

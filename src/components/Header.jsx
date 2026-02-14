@@ -17,6 +17,21 @@ const ArrowButton = styled(Button)`
     padding: 6px 5px;   /* smaller horizontal padding */
 `;
 
+const TodayButton = styled(Button)`
+    font-family: "Cavilenny", system-ui, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+`;
+
+const DateText = styled.div`
+    font-family: "SFMono", monospace;
+    font-size: 12px;   /* SAME */
+    opacity: 0.6;        /* SAME */
+    letter-spacing: -0.5px;   /* tighten monospace spacing */
+    word-spacing: -5px;
+
+`;
+
 
 const Title = styled.div`
     font-family: "Abocat", system-ui, sans-serif;
@@ -42,9 +57,10 @@ export default function Header({
             {/* Left: Title + Date */}
             <div>
                 <Title>Tracker</Title>
-                <div style={{ fontSize: 13, opacity: 0.6 }}>
+                <DateText>
                     {date.toDateString()}
-                </div>
+                </DateText>
+
             </div>
 
             {/* Right: Navigation */}
@@ -53,9 +69,10 @@ export default function Header({
                     <GoTriangleLeft size={20} />
                 </ArrowButton>
 
-                <Button onClick={() => setOffset(0)}>
+                <TodayButton onClick={() => setOffset(0)}>
                     Today
-                </Button>
+                </TodayButton>
+
 
                 <ArrowButton onClick={() => setOffset(offset + 1)}>
                     <GoTriangleRight size={20} />

@@ -6,6 +6,58 @@
   font-display: swap;
 }
 
+/* ---------- SF Mono Regular ---------- */
+@font-face {
+  font-family: "SFMono";
+  src: url("/SFMono-Regular.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- SF Mono Semibold ---------- */
+@font-face {
+  font-family: "SFMono-Semi";
+  src: url("/SFMono-Semibold.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Cavilenny ---------- */
+@font-face {
+  font-family: "Cavilenny";
+  src: url("/CavilennyRegular-7OvVl.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Basheq Vintage ---------- */
+@font-face {
+  font-family: "BasheqVintage";
+  src: url("/BasheqVintageDemoVersionRegular-ov13x.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Eline Novika ---------- */
+@font-face {
+  font-family: "ElineNovika";
+  src: url("/ElineNovikaRegular-vnOWD.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Runtime ---------- */
+@font-face {
+  font-family: "Runtime";
+  src: url("/RuntimeRegular-m2Odx.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 
 * {

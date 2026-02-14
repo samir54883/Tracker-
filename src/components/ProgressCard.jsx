@@ -8,7 +8,13 @@ const Card = styled.div`
     border-radius: 12px;
     border: 1px solid ${({ theme }) => theme.border};
     background: ${({ theme }) => theme.card};
+
+    /* ALL TEXT → SFMono-Semi */
+    font-family: "SFMono-Semi", monospace;
+    font-size: 14.4px;
+
 `;
+
 
 
 const Bar = styled.div`
