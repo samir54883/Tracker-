@@ -27,8 +27,8 @@ const DateText = styled.div`
     font-family: "SFMono", monospace;
     font-size: 12px;   /* SAME */
     opacity: 0.6;        /* SAME */
-    letter-spacing: -0.5px;   /* tighten monospace spacing */
-    word-spacing: -5px;
+    letter-spacing: -0.7px;   /* tighten monospace spacing */
+    word-spacing: -4px;
 
 `;
 
