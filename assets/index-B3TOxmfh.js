@@ -185,8 +185,9 @@ Error generating stack: `+l.message+`
 `,rv=Yt(Vm)`
     padding: 6px 5px;   /* smaller horizontal padding */
 `,jA=Yt(Vm)`
-    font-family: "Runtime", system-ui, sans-serif;
+    font-family: "Cavilenny", system-ui, sans-serif;
     font-size: 14px;
+    font-weight: 800;
     letter-spacing: 0.3px;
 `,kA=Yt.div`
     font-family: "SFMono", monospace;
