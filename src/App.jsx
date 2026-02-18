@@ -15,6 +15,8 @@ import useProgress from "./hooks/useProgress";
 import useStreak from "./hooks/useStreak";
 import { saveDayToCloud, loadDayFromCloud } from "./cloudSync";
 
+import GymPage from "./gym/GymPage";
+
 /* ================= GLOBAL THEME ================= */
 
 const Global = createGlobalStyle`
@@ -54,6 +56,7 @@ function getLocalDateKey(offset = 0) {
 export default function App() {
     const [offset, setOffset] = useState(0);
     const [themeMode, setThemeMode] = useState("dark");
+    const [mode, setMode] = useState("care");   // "care" | "gym"
 
     const theme = themeMode === "dark" ? darkTheme : lightTheme;
 
@@ -165,79 +168,79 @@ export default function App() {
                     date={dateObj}
                     offset={offset}
                     setOffset={setOffset}
-                    themeMode={themeMode}
-                    setThemeMode={setThemeMode}
+                    setMode={setMode}
+                    mode={mode}          // ← ADD
                 />
 
-                <Grid>
-                    {/* Morning */}
-                    <RoutineBlock
-                        title="Morning"
-                        block={routine.morning}
-                        state={state}
-                        toggle={toggle}
-                        locked={locked}
-                        dateKey={key}
-                    />
 
-                    {/* Oil */}
-                    {routine.oil && (
-                        <RoutineBlock
-                            title="Oil"
-                            block={{
-                                time: routine.oil.time,
-                                hair: routine.oil.tasks,
-                            }}
-                            state={state}
-                            toggle={toggle}
-                            locked={locked}
-                            dateKey={key}
-                        />
-                    )}
+                {mode === "care" ? (
+                    <>
+                        <Grid>
+                            {/* Morning */}
+                            <RoutineBlock
+                                title="Morning"
+                                block={routine.morning}
+                                state={state}
+                                toggle={toggle}
+                                locked={locked}
+                                dateKey={key}
+                            />
 
-                    {/* Shower */}
-                    {routine.shower && (
-                        <RoutineBlock
-                            title="Shower"
-                            block={{
-                                time: routine.shower.time,
-                                hair: routine.shower.tasks,
-                            }}
-                            state={state}
-                            toggle={toggle}
-                            locked={locked}
-                            dateKey={key}
-                        />
-                    )}
+                            {routine.oil && (
+                                <RoutineBlock
+                                    title="Oil"
+                                    block={{
+                                        time: routine.oil.time,
+                                        hair: routine.oil.tasks,
+                                    }}
+                                    state={state}
+                                    toggle={toggle}
+                                    locked={locked}
+                                    dateKey={key}
+                                />
+                            )}
 
-                    {/* Afternoon */}
-                    {routine.afternoon && (
-                        <RoutineBlock
-                            title="Afternoon"
-                            block={routine.afternoon}
-                            state={state}
-                            toggle={toggle}
-                            locked={locked}
-                            dateKey={key}
-                        />
-                    )}
+                            {routine.shower && (
+                                <RoutineBlock
+                                    title="Shower"
+                                    block={{
+                                        time: routine.shower.time,
+                                        hair: routine.shower.tasks,
+                                    }}
+                                    state={state}
+                                    toggle={toggle}
+                                    locked={locked}
+                                    dateKey={key}
+                                />
+                            )}
 
-                    {/* Night */}
-                    <RoutineBlock
-                        title="Night"
-                        block={routine.night}
-                        state={state}
-                        toggle={toggle}
-                        locked={locked}
-                        dateKey={key}
-                    />
-                </Grid>
+                            {routine.afternoon && (
+                                <RoutineBlock
+                                    title="Afternoon"
+                                    block={routine.afternoon}
+                                    state={state}
+                                    toggle={toggle}
+                                    locked={locked}
+                                    dateKey={key}
+                                />
+                            )}
 
-                {/* Progress */}
-                <ProgressCard progress={progress} streak={streak} />
+                            <RoutineBlock
+                                title="Night"
+                                block={routine.night}
+                                state={state}
+                                toggle={toggle}
+                                locked={locked}
+                                dateKey={key}
+                            />
+                        </Grid>
 
-                {/* Heatmap */}
-                <Heatmap onJump={jumpToDate} />
+                        <ProgressCard progress={progress} streak={streak} />
+                        <Heatmap onJump={jumpToDate} />
+                    </>
+                ) : (
+                    <GymPage date={dateObj} offset={offset} />
+                )}
 
                 <div style={{ height: 36 }} />
             </Container>
