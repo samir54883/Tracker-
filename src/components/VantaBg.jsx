@@ -44,17 +44,27 @@ export default function VantaBg() {
                     gyroControls: false,
                     minHeight: 200.0,
                     minWidth: 200.0,
-                    scale: 1.0,
 
-                    // Red/black palette matching your dark theme:
-                    // color1 = the "dark cell" color → near-black red
-                    // color2 = the "bright glow" color → deep crimson
-                    color1: 0x0d0000,   // near-black red (matches your #0b0000–#170000 range)
-                    color2: 0x7a0000,   // deep crimson  (matches your #650000–#8a0000 range)
+                    // Cap pixel ratio at 1.5 — phones with 3x screens don't need full res
+                    scale: Math.min(window.devicePixelRatio || 1, 1.5),
+                    // Half resolution on mobile = much smoother, negligible visual difference
+                    scaleMobile: 0.5,
 
-                    size: 0.9,
-                    speed: 1.0,
+                    // Red/black palette matching your dark theme
+                    color1: 0x0d0000,   // near-black red
+                    color2: 0x7a0000,   // deep crimson
+
+                    size: 1.0,          // down from 1.5 — less GPU fill
+                    speed: 0.8,
                 });
+
+                // Fade in once Vanta is ready — hides the gradient flash
+                requestAnimationFrame(() => {
+                    if (containerRef.current) {
+                        containerRef.current.style.opacity = "1";
+                    }
+                });
+
             } catch (err) {
                 console.warn("Vanta failed to load, falling back to CSS gradient.", err);
             }
@@ -80,10 +90,11 @@ export default function VantaBg() {
                 zIndex: -1,
                 width: "100vw",
                 height: "100vh",
-                // Flip 180° so the brighter/warmer clusters sit bottom-right
+                // Flip both axes so the brighter clusters sit bottom-right
                 transform: "scale(1, -1)",
-                // Keep it behind everything
                 pointerEvents: "none",
+                opacity: 0,
+                transition: "opacity 0.6s ease",
             }}
         />
     );
