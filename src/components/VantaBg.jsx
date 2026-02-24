@@ -48,13 +48,13 @@ export default function VantaBg() {
                     // Cap pixel ratio at 1.5 — phones with 3x screens don't need full res
                     scale: Math.min(window.devicePixelRatio || 1, 1.5),
                     // Half resolution on mobile = much smoother, negligible visual difference
-                    scaleMobile: 0.7,
+                    scaleMobile: 0.8,
 
                     // Red/black palette matching your dark theme
                     color1: 0x0d0000,   // near-black red
                     color2: 0x7a0000,   // deep crimson
 
-                    size: 1.0,          // down from 1.5 — less GPU fill
+                    size: 1.8,          // larger cells, compensates for scaleMobile: 0.5
                     speed: 0.8,
                 });
 
@@ -91,7 +91,7 @@ export default function VantaBg() {
                 width: "100vw",
                 height: "100vh",
                 // Flip both axes so the brighter clusters sit bottom-right
-                transform: "scale(1, -1)",
+                transform: "scale(-1, -1)",
                 pointerEvents: "none",
                 opacity: 0,
                 transition: "opacity 0.6s ease",
