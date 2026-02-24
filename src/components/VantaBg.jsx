@@ -52,7 +52,7 @@ export default function VantaBg() {
                     color1: 0x0d0000,   // near-black red (matches your #0b0000–#170000 range)
                     color2: 0x7a0000,   // deep crimson  (matches your #650000–#8a0000 range)
 
-                    size: 1.5,
+                    size: 0.9,
                     speed: 1.0,
                 });
             } catch (err) {
