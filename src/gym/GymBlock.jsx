@@ -212,7 +212,7 @@ const calLabelStyle = {
 
 /* Gradient sets x reps label */
 const setsRepsStyle = {
-    marginLeft: 10,
+    marginLeft: 4,  // reduced from 10
     fontSize: 11,
     fontWeight: 600,
     letterSpacing: "0.02em",
