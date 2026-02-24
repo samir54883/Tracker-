@@ -48,7 +48,7 @@ export default function VantaBg() {
                     // Cap pixel ratio at 1.5 — phones with 3x screens don't need full res
                     scale: Math.min(window.devicePixelRatio || 1, 1.5),
                     // Half resolution on mobile = much smoother, negligible visual difference
-                    scaleMobile: 0.5,
+                    scaleMobile: 0.7,
 
                     // Red/black palette matching your dark theme
                     color1: 0x0d0000,   // near-black red
