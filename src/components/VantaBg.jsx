@@ -91,7 +91,7 @@ export default function VantaBg() {
                 width: "100vw",
                 height: "100vh",
                 // Flip both axes so the brighter clusters sit bottom-right
-                transform: "scale(-1, -1)",
+                transform: "scale(1, -1)",
                 pointerEvents: "none",
                 opacity: 0,
                 transition: "opacity 0.6s ease",
