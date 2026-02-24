@@ -1,4 +1,5 @@
 export const darkTheme = {
+    // bg is now handled by Vanta; this is the fallback if Vanta fails to load
     bg: `
       linear-gradient(
         155deg,
@@ -9,18 +10,6 @@ export const darkTheme = {
         #480000 68%,
         #650000 82%,
         #8a0000 100%
-      ),
-      linear-gradient(
-        165deg,
-        rgba(255, 0, 0, 0) 58%,
-        rgba(138, 0, 0, 0.18) 72%,
-        rgba(255, 0, 0, 0) 86%
-      ),
-      radial-gradient(
-        circle at 85% 40%,
-        rgba(138, 0, 0, 0.10),
-        rgba(0, 0, 0, 0.92) 60%,
-        #000000 100%
       )
     `,
     bgSolid: "#000000",

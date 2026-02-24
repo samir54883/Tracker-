@@ -81,3 +81,8 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+input::placeholder {
+  color: #fff;
+  opacity: 0.8;
+}

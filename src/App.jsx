@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { darkTheme, lightTheme } from "./styles/theme";
 import { weeklyRoutine } from "./data/weeklyRoutine";
+import VantaBg from "./components/VantaBg";
 
 import Header from "./components/Header";
 import RoutineBlock from "./components/RoutineBlock";
@@ -162,7 +163,7 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <Global />
-
+            <VantaBg />
             <Container>
                 <Header
                     date={dateObj}
